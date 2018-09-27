@@ -1,32 +1,36 @@
 #a, b = input().split('\40')
 #a = int(a)
 #b = int(b)
-a = 2
+a = 9
 b = 2
 
-def foo_2a():
-    print(a>b)
-foo_2a()
+def foo_2a(a,b):print(a>b)
+#print(a>b)
+foo_2a(a,b)
 
-def foo_3a():
-    global c
-    if a > b:
-        c = 1
-    else:
-        c = 0
-    print(c)
-foo_3a()
+def foo_3a(a,b): return a > b
 
-def foo_3b():
-    global max
-    if c == 1:
-        max = a
-    else:
-        max = b
-    print(max)
-foo_3b()
+# def foo_3a():
+#
+#     if a > b:
+#         c = 1
+#     else:
+#         c = 0
+#     print(c)
+#     return(c)
+foo_3a(a,b)
 
-print( max, '>', b) if max==a else print( max, '>', a)
+def foo_3b(a,b): return a if foo_3a(a,b) else b
+
+# def foo_3b():
+#     if c == 1:
+#         max = a
+#     else:
+#         max = b
+#     print(max)
+foo_3b(a,b)
+
+print( a, '>', b) if foo_3a(a,b) else print( b, '>', a)
 
 flag = False
 def foo_3aNew():
